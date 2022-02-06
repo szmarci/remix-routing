@@ -1,9 +1,17 @@
-import { useState } from 'react';
-import { useLocation } from 'remix';
+import { useNavigate } from 'remix';
 import { Blue } from '~/Blue';
 
-export default function New() {
+export default function Colors() {
+  const navigate = useNavigate();
+  
+  const handler = () => {
+    navigate("yellowandred", {state: {colorid: "red"}});
+  }
+
   return (
-    <Blue />
+    <>
+      <Blue />
+      <button onClick={handler}>go to yellow</button>
+    </>
   );
 }

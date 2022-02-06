@@ -5,15 +5,17 @@ import { Yellow } from '~/Yellow';
 import { Blue } from '~/Blue';
 
 export default function NewId() {
-  const {state}: any = useLocation();
-  const [list, setList] = useState(() => ({...state}));
-  console.log("list: ", list)
+  const {state: urldata}: any = useLocation();
+  const [state] = useState(() => ({...urldata}));
+
   console.log("state: ", state)
+  console.log("urldata: ", urldata)
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <div>
       <Yellow />
       {
-        list.colorid === "red"
+        state.colorid === "red"
           ? <Red />
           : <Blue />
       }
